@@ -1,0 +1,16 @@
+## 로컬에 설정된 git을 해제하기 위해서는
+
+깃을 깃허브에 연동할때는 새로 생성한폴더에 아래와 같은 과정을 거친다.
+1. 폴더생성
+2. 폴더오른쪽 클릭 git bash를 or 터미널에서 해당 폴더로 이동후 `git init` 입력
+3. `git remote add origin https://github.com/asanagi85/asanagi85.github.io.git` <레파지토리 패스>
+4. 그런후에 그 레파지토리에 있는 모든 데이터(레파지토리 통째로) 로컬에 당겨 오려면 
+`git clone <레파지토리주소 위에 있는 http부터 시작하는 주소처럼 해당 깃허브상에서 해당레포지토리 클릭하면 우측상단에 code라고 있는데 거기서 복사가능>`
+5. 만약, 해당 레포지토리의 일부만 clone하고 싶다면..6번~8번까지 과정을 추가해야 한다.
+6. `git config core.sparsecheckout true` 실행
+7. `echo _posts/* >> .git/info/sparse-checkout` echo부터 >>전까지는 해당하는 폴더명/*이라는 식으로 입력해야함
+8. `git pull origin master` 이것으로 특정폴더만 가져오기 완료
+
+하지만 명령어 집어넣다가 잘못입력해서 완전히 처음부터 깨끗한 상태에서 다시 설정하고 싶으면
+아래에 명령어를 사용하자.
+`rm -rf .git` >> 깔끔해진다...
